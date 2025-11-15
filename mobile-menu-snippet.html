@@ -1,0 +1,21 @@
+<!-- Enable Mobile Menu -->
+<script>
+  $(document).ready(function() {
+    // Initialize SlickNav (mobile menu)
+    $('#nav').slicknav({
+      prependTo: '.mobile-menu',
+      label: '',                
+      closeOnClick: true,       
+      brand: '<a href="index.html"><img src="images/logo.png" alt="VEF Logo" style="height:40px;"></a>',
+    });
+
+    // Optional: Adjust color styling for the hamburger icon
+    $('.slicknav_menu').css({
+      'background-color': '#018790',
+      'border-bottom': '2px solid #E09700'
+    });
+    $('.slicknav_icon-bar').css({
+      'background-color': '#E09700'
+    });
+  });
+</script>

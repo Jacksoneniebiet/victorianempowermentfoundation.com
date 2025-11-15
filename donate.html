@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Donate / Sponsor — VEF (VICTORIAN EMPOWERMENT FOUNDATION)</title>
+  <meta name="description" content="Support our work — donate or sponsor our programs. Secure payments, receipts and corporate sponsorship options." />
+  <style>
+    /* Basic modern, responsive styling */
+    :root{
+      --bg:#f7f9fb;
+      --card:#ffffff;
+      --accent:#018790; /* change to your brand */
+      --accent-2:#E09700;
+      --muted:#6b7280;
+      --radius:10px;
+      --max-width:980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg, var(--bg), #ffffff);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:24px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      min-height:100vh;
+    }
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 8px 28px rgba(2,6,23,0.08);
+      padding:28px;
+      margin:24px;
+    }
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      margin-bottom:12px;
+    }
+    .logo{
+      width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;
+    }
+    h1{font-size:1.4rem;margin:0}
+    p.lead{margin:6px 0 18px;color:var(--muted)}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:20px;
+    }
+    @media (max-width:920px){ .grid{grid-template-columns: 1fr} }
+
+    /* form card */
+    form.card{
+      background:linear-gradient(180deg, #fff, #fbfcfd);
+      padding:18px;
+      border-radius:10px;
+      border:1px solid rgba(2,6,23,0.04);
+    }
+    label{display:block;font-weight:600;margin:8px 0 6px;font-size:0.92rem}
+    .hint{font-weight:400;color:var(--muted);font-size:0.9rem;margin-bottom:8px}
+    input[type="text"], input[type="email"], input[type="tel"], select, textarea, input[type="number"]{
+      width:100%;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid #e6e9ee;
+      font-size:0.95rem;
+      background:transparent;
+    }
+    textarea{min-height:120px;resize:vertical}
+    .row{display:flex;gap:12px}
+    .row .col{flex:1}
+    .options{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+    .option{
+      border:1px solid #e6e9ee;padding:8px 12px;border-radius:8px;cursor:pointer;
+      user-select:none;background:white;
+    }
+    .option input{margin-right:8px}
+    .small{font-size:0.85rem;color:var(--muted)}
+    .right-card{
+      background:linear-gradient(180deg,#fff,#fbfbff);
+      padding:18px;border-radius:10px;border:1px solid rgba(2,6,23,0.04);
+      height:100%;
+    }
+    .summary{font-weight:600;margin-top:8px}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:10px;border:0;font-weight:700;
+      background:var(--accent);color:white;cursor:pointer;font-size:1rem;margin-top:12px;
+    }
+    .btn.secondary{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+    .muted-box{background:#fcfcff;padding:10px;border-radius:8px;border:1px dashed #eef2f7;color:var(--muted);font-size:0.95rem}
+    .notice{background:#fff7e6;border-left:4px solid var(--accent-2);padding:10px;border-radius:6px;margin-top:12px}
+    .footer{margin-top:18px;font-size:0.88rem;color:var(--muted)}
+
+    /* accessibility focus */
+    input:focus,select:focus,textarea:focus{outline:3px solid rgba(1,135,144,0.14);outline-offset:2px}
+    .error{color:#b91c1c;font-size:0.88rem;margin-top:6px}
+    .hidden{display:none}
+    .small-muted{font-size:0.85rem;color:var(--muted);margin-top:6px}
+
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="logo" aria-hidden="true">VEF</div>
+      <div>
+        <h1>Support Our Work — Donate or Sponsor</h1>
+        <p class="lead">Your contribution powers programs, scholarships, and community projects. Choose a one-time gift or become a sponsor.</p>
+      </div>
+    </header>
+
+    <div class="grid" aria-labelledby="donate-heading">
+      <section id="form-section" class="card" aria-label="Donation and sponsorship form">
+        <form id="donationForm" class="card" novalidate>
+          <input type="hidden" name="campaign" value="general-fund" />
+          <!-- Donor type -->
+          <label for="donorType">I am donating as</label>
+          <div class="options" role="radiogroup" aria-labelledby="donorType">
+            <label class="option"><input type="radio" name="donorType" value="individual" checked /> Individual</label>
+            <label class="option"><input type="radio" name="donorType" value="company" /> Company / Organization</label>
+          </div>
+
+          <!-- Amount -->
+          <label for="amount">Amount (NGN / USD)</label>
+          <div class="row" aria-hidden="false">
+            <input id="amount" name="amount" type="number" min="1" step="any" placeholder="Enter amount e.g. 5000" required />
+            <select id="currency" name="currency" title="Currency">
+              <option value="NGN">NGN</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+            </select>
+          </div>
+          <div class="small-muted">Quick tiers:
+            <button type="button" class="btn secondary" data-amount="2000">2,000,000</button>
+            <button type="button" class="btn secondary" data-amount="5000">5,000,000</button>
+            <button type="button" class="btn secondary" data-amount="10000">10,000,000</button>
+          </div>
+
+          <!-- recurring -->
+          <label for="frequency">Frequency</label>
+          <select id="frequency" name="frequency">
+            <option value="one_time">One-time</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+          </select>
+
+          <!-- sponsorship / corporate fields -->
+          <div id="companyFields" class="hidden" aria-hidden="true">
+            <label for="companyName">Company / Organization Name</label>
+            <input id="companyName" name="companyName" type="text" placeholder="e.g. Acme Ltd" />
+
+            <label for="companyLogo">Company logo (optional)</label>
+            <input id="companyLogo" name="companyLogo" type="file" accept="image/*" />
+
+            <label for="sponsorshipTier">Sponsorship Tier</label>
+            <select id="sponsorshipTier" name="sponsorshipTier">
+              <option value="">Select a tier (optional)</option>
+              <option value="bronze">Bronze — branding on web (₦5,000,000)</option>
+              <option value="silver">Silver — web + eve888888888888nt mention (₦150,000,000)</option>
+              <option value="gold">Gold — partner page + event + press (₦500,000,000)</option>
+            </select>
+            <p class="small muted-box">Need a tailored sponsorship package? Use the message box below to request a proposal for in-kind or larger partnerships.</p>
+          </div>
+
+          <!-- donor details -->
+          <fieldset style="border:0;padding:0;margin-top:12px">
+            <legend class="small">Donor information</legend>
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" type="text" placeholder="Your full name" required />
+
+            <label for="email">Email (for receipt)</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" placeholder="+234 800 000 0000" />
+          </fieldset>
+
+          <label for="message">Message (optional)</label>
+          <textarea id="message" name="message" placeholder="Write a short message or how you'd like your sponsorship recognized..."></textarea>
+
+          <!-- payment method choices -->
+          <label for="paymentMethod">Payment method</label>
+          <div class="options" role="radiogroup" aria-labelledby="paymentMethod">
+            <label class="option"><input type="radio" name="paymentMethod" value="card" checked /> Card (Stripe)</label>
+            <label class="option"><input type="radio" name="paymentMethod" value="paypal" /> PayPal</label>
+            <label class="option"><input type="radio" name="paymentMethod" value="bank" /> Bank transfer (manual)</label>
+          </div>
+
+          <!-- card placeholder - real card collection must use Stripe Elements or hosted checkout -->
+          <div id="cardPlaceholder" class="muted-box">
+            <p class="small">Card entry will be handled securely by your payment provider (e.g. Stripe). Do not collect raw card numbers on this page unless you implement a secure PCI-compliant solution such as Stripe Elements or Stripe Checkout.</p>
+          </div>
+
+          <div id="formErrors" class="error" aria-live="polite" role="status"></div>
+
+          <button type="submit" class="btn" id="donateBtn">Donate / Sponsor</button>
+
+          <div class="notice" role="note">
+            <strong>Receipts & security:</strong> You will receive an email receipt. Payments are processed securely by our payment partner; we never store card numbers on this server.
+          </div>
+
+          <div class="footer">
+            By donating you agree to our <a href="#" target="_blank">terms</a> and <a href="#" target="_blank">privacy policy</a>.
+          </div>
+        </form>
+      </section>
+
+      <aside class="right-card" aria-label="Donation summary and info">
+        <h2 style="margin-top:0;font-size:1.05rem">Summary</h2>
+        <div class="summary" id="summaryAmount">Amount: —</div>
+        <div class="small-muted" id="summaryFrequency">Frequency: —</div>
+        <div class="small-muted" id="summaryMethod">Payment method: —</div>
+
+        <hr style="margin:14px 0" />
+        <h3 style="margin:0.4rem 0 6px">Why your support matters</h3>
+        <p class="small-muted">Donations fund scholarships, training, and community projects that empower women and entrepreneurs. Sponsorship packages include public recognition and partnership opportunities.</p>
+
+        <h4 style="margin-top:12px">Bank transfer details (example)</h4>
+        <div class="muted-box" id="bankDetails">
+          <div><strong>Bank:</strong> Access Bank</div>
+          <div><strong>Account name:</strong> Victoria Victor</div>
+          <div><strong>Account number:</strong> 0810133446</div>
+          <div class="small-muted">If you choose bank transfer, please upload proof of payment when you email receipts@you.org</div>
+        </div>
+
+        <h4 style="margin-top:12px">Contact</h4>
+        <p class="small-muted">Questions? Email <a href="mailto:devictorian.academy@gmail.com">devictorian.academy@gmail.com</a> or call +234-8023183784.</p>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // --- small front-end behavior: tier buttons, show company fields, client-side validation, and fake submit flow
+    (function(){
+      const form = document.getElementById('donationForm');
+      const amountInput = document.getElementById('amount');
+      const currency = document.getElementById('currency');
+      const freq = document.getElementById('frequency');
+      const donateBtn = document.getElementById('donateBtn');
+      const summaryAmount = document.getElementById('summaryAmount');
+      const summaryFrequency = document.getElementById('summaryFrequency');
+      const summaryMethod = document.getElementById('summaryMethod');
+      const methodRadios = Array.from(document.querySelectorAll('input[name="paymentMethod"]'));
+      const donorTypeRadios = Array.from(document.querySelectorAll('input[name="donorType"]'));
+      const companyFields = document.getElementById('companyFields');
+      const quickBtns = Array.from(document.querySelectorAll('button[data-amount]'));
+      const errorsEl = document.getElementById('formErrors');
+
+      // quick amount buttons
+      quickBtns.forEach(b => b.addEventListener('click', e => {
+        const v = Number(e.currentTarget.dataset.amount);
+        amountInput.value = v;
+        updateSummary();
+      }));
+
+      // toggle company fields
+      function updateDonorType(){
+        const type = donorTypeRadios.find(r=>r.checked).value;
+        if(type === 'company'){
+          companyFields.classList.remove('hidden');
+          companyFields.setAttribute('aria-hidden','false');
+        } else {
+          companyFields.classList.add('hidden');
+          companyFields.setAttribute('aria-hidden','true');
+        }
+      }
+      donorTypeRadios.forEach(r=>r.addEventListener('change', updateDonorType));
+      updateDonorType();
+
+      // summary update
+      function updateSummary(){
+        const amt = amountInput.value ? Number(amountInput.value).toLocaleString() : '—';
+        summaryAmount.textContent = 'Amount: ' + amt + ' ' + currency.value;
+        summaryFrequency.textContent = 'Frequency: ' + (freq.value === 'one_time' ? 'One-time' : (freq.value.charAt(0).toUpperCase()+freq.value.slice(1)));
+        const method = methodRadios.find(r=>r.checked).value;
+        summaryMethod.textContent = 'Payment method: ' + (method === 'card' ? 'Card' : method === 'paypal' ? 'PayPal' : 'Bank transfer');
+      }
+      // update when inputs change
+      [amountInput, currency, freq].forEach(el => el.addEventListener('change', updateSummary));
+      methodRadios.forEach(r => r.addEventListener('change', updateSummary));
+      updateSummary();
+
+      // basic form validation
+      function validate(){
+        errorsEl.textContent = '';
+        if(!amountInput.value || Number(amountInput.value) <= 0){
+          errorsEl.textContent = 'Please enter a valid donation amount.';
+          amountInput.focus();
+          return false;
+        }
+        const fullName = form.fullName.value.trim();
+        const email = form.email.value.trim();
+        if(!fullName){ errorsEl.textContent = 'Please enter your full name.'; form.fullName.focus(); return false; }
+        if(!email || !/^\S+@\S+\.\S+$/.test(email)){ errorsEl.textContent = 'Please enter a valid email address.'; form.email.focus(); return false; }
+        return true;
+      }
+
+      // submit handler: DO NOT process payments here; call your backend to create payment session
+      form.addEventListener('submit', async function(evt){
+        evt.preventDefault();
+        if(!validate()) return;
+
+        donateBtn.disabled = true;
+        donateBtn.textContent = 'Processing...';
+
+        // Gather form data
+        const fd = new FormData(form);
+
+        // Example: call your server to create a payment session (Stripe/PayPal)
+        // Replace '/create-payment-intent' with your backend route that creates payment session & returns {checkoutUrl} or {clientSecret}
+        // This is a placeholder network request — implement server-side securely (do not send secret keys from client).
+        try {
+          const payload = {
+            amount: Number(fd.get('amount')),
+            currency: fd.get('currency'),
+            frequency: fd.get('frequency'),
+            donorType: fd.get('donorType'),
+            fullName: fd.get('fullName'),
+            email: fd.get('email'),
+            phone: fd.get('phone'),
+            message: fd.get('message'),
+            sponsorshipTier: fd.get('sponsorshipTier'),
+            paymentMethod: fd.get('paymentMethod')
+          };
+
+          // NOTE: This fetch below will fail if you don't implement the endpoint.
+          // It's intentionally here as a template for integration.
+          const resp = await fetch('/create-payment-session', {
+            method:'POST',
+            headers:{ 'Content-Type':'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if(!resp.ok){
+            const text = await resp.text();
+            throw new Error('Server error: ' + text);
+          }
+          const result = await resp.json();
+
+          // Two common flows:
+          // 1) Server returns {checkoutUrl} (redirect user to payment page like Stripe Checkout or PayPal)
+          // 2) Server returns {clientSecret} for Stripe Elements — then confirmCardPayment on client
+          if(result.checkoutUrl){
+            // redirect user to checkout (recommended)
+            window.location.href = result.checkoutUrl;
+            return;
+          } else if(result.clientSecret){
+            // If using Stripe Elements you'd call stripe.confirmCardPayment(clientSecret, ...) here.
+            // This is a placeholder to illustrate flow.
+            alert('Payment client secret received. Integrate Stripe Elements to complete payment.');
+            donateBtn.disabled = false;
+            donateBtn.textContent = 'Donate / Sponsor';
+            return;
+          } else {
+            // fallback: server accepted and immediate offline instructions
+            alert('Thank you! Your support was recorded. You will receive an email receipt shortly.');
+            window.location.href = '/thank-you';
+            return;
+          }
+        } catch(err){
+          console.error(err);
+          errorsEl.textContent = 'Could not start payment: ' + (err && err.message ? err.message : 'network error');
+        } finally {
+          donateBtn.disabled = false;
+          donateBtn.textContent = 'Donate / Sponsor';
+        }
+      });
+
+      // Accessibility: make option labels act like radios/checkboxes
+      document.querySelectorAll('.option').forEach(opt=>{
+        opt.addEventListener('click', function(e){
+          const input = opt.querySelector('input');
+          if(input){
+            input.checked = true;
+            input.dispatchEvent(new Event('change',{bubbles:true}));
+            updateSummary();
+            if(input.name === 'donorType') updateDonorType();
+          }
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>
