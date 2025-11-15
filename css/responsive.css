@@ -1,0 +1,263 @@
+/* ==========================================================
+   RESPONSIVE STYLESHEET – Victorian Empowerment Foundation
+   Colors: Teal (#018790), Gold (#E09700), White (#FFFFFF)
+   ========================================================== */
+
+/* Base mobile-first resets */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+section,
+div,
+.container {
+  overflow-x: hidden;
+}
+
+/* -----------------------------------------
+   Global typography scaling
+-------------------------------------------- */
+body {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+p  { font-size: 1rem; }
+
+/* -----------------------------------------
+   Header / Navbar
+-------------------------------------------- */
+.header {
+  background-color: #018790;
+}
+
+.menu-bar nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+
+.menu-bar nav ul li a {
+  color: #fff;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.menu-bar nav ul li a:hover {
+  color: #E09700;
+}
+
+/* Mobile menu */
+.slicknav_menu {
+  display: none;
+}
+
+/* -----------------------------------------
+   Responsive layouts
+-------------------------------------------- */
+@media (max-width: 991px) {
+
+  /* General structure */
+  .section {
+    padding: 60px 20px;
+  }
+
+  /* Navbar collapses */
+  .menu-bar nav ul {
+    display: none;
+  }
+
+  .slicknav_menu {
+    display: block;
+    background: #018790;
+  }
+
+  .slicknav_menu a {
+    color: #fff;
+  }
+
+  .slicknav_menu .slicknav_icon-bar {
+    background: #E09700;
+  }
+
+  /* Slider text */
+  .slider-content {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .slider-content p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .slider-content .btn {
+    margin: 10px 0;
+  }
+
+  /* Courses */
+  .single-course {
+    margin-bottom: 25px;
+  }
+
+  .single-course .course-body p {
+    font-size: 14px;
+  }
+
+  /* CTA section */
+  .cta-inner {
+    padding: 50px 25px;
+    background-size: cover !important;
+    background-position: center !important;
+    text-align: center;
+  }
+
+  .cta-inner .text-content h2 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  /* Features */
+  .features .single-feature {
+    margin-bottom: 30px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+  }
+
+  .footer .single-widget {
+    margin-bottom: 30px;
+  }
+
+  .footer .single-widget h2 {
+    font-size: 1.2rem;
+    color: #E09700;
+  }
+
+  .footer .list li {
+    font-size: 14px;
+  }
+}
+
+/* -----------------------------------------
+   Phones (≤768px)
+-------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Reduce section spacing */
+  .section {
+    padding: 40px 15px;
+  }
+
+  /* Hero slider */
+  .home-slider .slider-content {
+    padding: 15px;
+  }
+
+  .slider-content p {
+    font-size: 13px;
+  }
+
+  .slider-content .btn {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    margin: 10px auto;
+  }
+
+  /* Stack all columns */
+  .col-lg-4, .col-md-6, .col-12 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Event section */
+  .event-content p {
+    font-size: 14px;
+  }
+
+  /* Images */
+  .course-head img,
+  .feature-content img,
+  .cta-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Footer */
+  .footer .social {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .footer .social li {
+    margin: 0 5px;
+  }
+
+  /* Fix overflowing content */
+  body, html {
+    overflow-x: hidden;
+  }
+}
+
+/* -----------------------------------------
+   Small phones (≤480px)
+-------------------------------------------- */
+@media (max-width: 480px) {
+  .slider-content h2,
+  .cta-inner h2 {
+    font-size: 1.3rem;
+  }
+
+  .slider-content p,
+  .cta-inner p {
+    font-size: 13px;
+  }
+
+  .footer .copyright p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+/* -----------------------------------------
+   Buttons & Highlights
+-------------------------------------------- */
+.btn {
+  background: #018790;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #E09700;
+  color: #fff;
+}
+
+.btn.white {
+  background: #fff;
+  color: #018790;
+}
+
+.btn.white:hover {
+  background: #E09700;
+  color: #fff;
+}
+
+/* -----------------------------------------
+   Utility classes
+-------------------------------------------- */
+.text-center { text-align: center; }
+.mt-20 { margin-top: 20px; }
+.mb-20 { margin-bottom: 20px; }
